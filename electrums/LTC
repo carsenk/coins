@@ -1,1 +1,14 @@
-[{"electrum-ltc.bysh.me":50001},{"node.ispol.sk":50003},{"electrum-ltc.wilv.in":50001},{"backup.electrum-ltc.org":50001}]
+[
+  {
+    "url": "electrum-ltc.bysh.me:50001"
+  },
+  {
+    "url": "electrum.ltc.xurious.com:50001"
+  },
+  {
+    "url": "ltc.rentonisk.com:50001"
+  },
+  {
+    "url": "backup.electrum-ltc.org:50001"
+  }
+]

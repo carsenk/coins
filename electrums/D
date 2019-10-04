@@ -1,23 +1,23 @@
 [
   {
-    "electrumx1.denarius.pro": 50001,
+    "url": "electrumx1.denarius.pro:50001",
     "contact": [
       {
         "email": "admin@denarius.io"
       },
       {
-        "matrix": "@cipig:matrix.org"
+        "discord": "Carsen#3333"
       }
     ]
   },
   {
-    "electrumx2.denarius.pro": 50001,
+    "url": "electrumx2.denarius.pro:50001",
     "contact": [
       {
         "email": "admin@denarius.io"
       },
       {
-        "matrix": "@cipig:matrix.org"
+        "discord": "Carsen#3333"
       }
     ]
   }

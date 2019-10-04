@@ -46,6 +46,22 @@ You need the following info in JSON format added to [coins](coins) file:
 
 # Example 3
 {
+  "coin": "ZEC",
+  "name": "zcash",
+  "fname": "Zcash",
+  "rpcport": 8232,
+  "taddr": 28,
+  "pubtype": 184,
+  "p2shtype": 189,
+  "wiftype": 128,
+  "txversion": 4,
+  "txfee": 10000,
+  "overwintered": 1,
+  "mm2": 1
+},
+
+# Example 4
+{
   "coin": "REP",
   "name": "augur",
   "fname": "Augur",
@@ -58,6 +74,8 @@ You need the following info in JSON format added to [coins](coins) file:
 #### General parameters
 
 `"mm2"` add this param if coin is confirmed working with MM2 (successful swap is made). 
+
+`"required_confirmations"` the number of confirmations MM2 will wait for during the swap. Default value is 1.
 
 #### Bitcoin Protocol specific JSON
 
@@ -75,6 +93,8 @@ You need the following info in JSON format added to [coins](coins) file:
 
 `"txfee"` is a value of default transactions fee, which must be specified in satoshies unit. BarterDEX uses this as the default transaction fee value when makes atomic swaps transactions.
 
+`"overwintered"` must be `1` if Overwinter upgrade was activated for the coin. Defaults to 1 for KMD and assetchains.
+
 
 #### Ethereum Protocol specific JSON
 
@@ -82,7 +102,7 @@ Ethereum protocol specific coin/project add request are the most simplest. `"coi
 
 `"rpcport"` must remain default for all ERC20 token/coins. Make sure its only specified as `80`.
 
-`"etomic"` must be the ERC20 token/coin's smart contract address.
+`"etomic"` must be the ERC20 token/coin's [checksummed](https://coincodex.com/article/2078/ethereum-address-checksum-explained/) smart contract address.
 
 
 ### 2. Icon file (Required)
@@ -110,7 +130,9 @@ Ethereum protocol specific coin/project add request are the most simplest. `"coi
 ```JSON
 [
   {
-    "electrum1.example.com": 12345,
+    "url": "nmc.bitcoins.sk:50002",
+    "protocol": "SSL",
+    "disable_cert_verification": true,
     "contact": [
       {"email": "electrum1_admin_email@example.com"},
       {"matrix": "@electrum1_admin:matrix.org"},
@@ -122,7 +144,9 @@ Ethereum protocol specific coin/project add request are the most simplest. `"coi
     ]
   },
   {
-    "electrum2.example.com": 12345,
+    "url": "electrum-nmc.le-space.de:50002",
+    "protocol": "SSL",
+    "disable_cert_verification": false,
     "contact": [
       {"email": "electrum2_admin_email@example.com"}
     ]
@@ -131,6 +155,7 @@ Ethereum protocol specific coin/project add request are the most simplest. `"coi
 ```
 
 - At least minimum 2 or more Electrum servers information must be provided.
+- Protocol can be "SSL" or "TCP".
 - Contact information must be provided in case the server admin needs to be contact in urgent cases when required. It can be any contact information out of the examples provided. Or may be add your own service/contact information as suites you.
 - The address and port of electrum server are required. The address of electrum server can either be a DNS or an IP address.
 
